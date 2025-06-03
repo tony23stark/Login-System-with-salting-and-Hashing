@@ -1,3 +1,4 @@
+# Login-System-with-salting-and-Hashing
 # Secure Login System with Password Salting and Hashing
 
 This project implements a secure login system using password salting and hashing techniques to protect user credentials.
