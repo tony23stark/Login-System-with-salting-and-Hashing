@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    body {
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%) !important;
+    }
+    .register-card {
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        border-radius: 1.5rem;
+        padding: 2.5rem 2rem;
+        margin-top: 3rem;
+    }
+    .register-icon {
+        font-size: 4rem;
+        color: #2575fc;
+        margin-bottom: 1rem;
+    }
+    .form-control {
+        border-radius: 1rem;
+        padding: 0.8rem 1.2rem;
+        border: 2px solid #e9ecef;
+        transition: all 0.3s ease;
+    }
+    .form-control:focus {
+        border-color: #2575fc;
+        box-shadow: 0 0 0 0.2rem rgba(37, 117, 252, 0.25);
+    }
+    .btn-register {
+        font-size: 1.2rem;
+        padding: 0.75rem 2rem;
+        border-radius: 2rem;
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        border: none;
+        transition: all 0.3s ease;
+    }
+    .btn-register:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+    }
+    .form-label {
+        font-weight: 500;
+        color: #495057;
+    }
+    .login-link {
+        color: #2575fc;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    .login-link:hover {
+        color: #6a11cb;
+        text-decoration: underline;
+    }
+    .password-requirements {
+        background: rgba(37, 117, 252, 0.1);
+        border-radius: 0.8rem;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        color: #495057;
+    }
+    .requirement-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.3rem;
+    }
+    .requirement-item:last-child {
+        margin-bottom: 0;
+    }
+    .requirement-icon {
+        color: #2575fc;
+        margin-right: 0.5rem;
+    }
+</style>
+
+<div class="d-flex justify-content-center align-items-center min-vh-80">
+    <div class="register-card" style="max-width: 450px; width: 100%;">
+        <div class="text-center">
+            <div class="register-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                </svg>
+            </div>
+            <h2 class="mb-4" style="color: #2575fc;">Create Account</h2>
+        </div>
+
+        <form method="POST" action="{{ url_for('register') }}">
+            <div class="mb-4">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required 
+                       placeholder="Choose a username">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required 
+                       placeholder="Create a strong password">
+                <div class="password-requirements">
+                    <div class="requirement-item">
+                        <svg class="requirement-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm3.857-9.809a.5.5 0 0 0-.715-.709l-3.15 3.15-1.5-1.5a.5.5 0 0 0-.708.708l2 2a.5.5 0 0 0 .708 0l3.5-3.5z"/>
+                        </svg>
+                        At least 8 characters long
+                    </div>
+                    <div class="requirement-item">
+                        <svg class="requirement-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm3.857-9.809a.5.5 0 0 0-.715-.709l-3.15 3.15-1.5-1.5a.5.5 0 0 0-.708.708l2 2a.5.5 0 0 0 .708 0l3.5-3.5z"/>
+                        </svg>
+                        Include letters and numbers
+                    </div>
+                    <div class="requirement-item">
+                        <svg class="requirement-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm3.857-9.809a.5.5 0 0 0-.715-.709l-3.15 3.15-1.5-1.5a.5.5 0 0 0-.708.708l2 2a.5.5 0 0 0 .708 0l3.5-3.5z"/>
+                        </svg>
+                        Add special characters for extra security
+                    </div>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-register">Create Account</button>
+            </div>
+        </form>
+
+        <div class="text-center mt-4">
+            <p class="mb-0">Already have an account? 
+                <a href="{{ url_for('login') }}" class="login-link">Login here</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %} 
