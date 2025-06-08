@@ -97,4 +97,4 @@ The application will be available at `http://localhost:5000`
 - Flask-Login: User session management 
 =======
 - View your profile at `/profile` (requires authentication) 
->>>>>>> f69bfaf105f3adb9726a48b3d11600f6984cbdc1
+
